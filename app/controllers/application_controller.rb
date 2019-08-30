@@ -40,6 +40,7 @@ class ApplicationController < Sinatra::Base
     # end
     # redirect '/sessions/login'
     @user = User.find_by(email: params["email"], password: params["password"])
+    session[:user_id] = @user.id
   end
 
   get '/sessions/logout' do
